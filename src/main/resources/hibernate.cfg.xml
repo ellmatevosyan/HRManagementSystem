@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/management_system</property>
+        <property name="connection.username">postgres</property>
+        <property name="hibernate.connection.password">postgres</property>
+        <property name="hbm2ddl.auto">update</property>
+        <!-- JDBC connection pool settings using built-in test pool -->
+        <property name="connection.pool_size">5</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region_prefix.factory_class">
+            org.hibernate.cache.ehcache.EhCacheRegionFactory
+        </property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+<!--        <mapping package="com.picsart.java.entities"/>-->
+        <mapping class="com.picsart.java.Employee"/>
+        <mapping class="com.picsart.java.Manager"/>
+        <mapping class="com.picsart.java.Department"/>
+        <mapping class="com.picsart.java.Project"/>
+
+
+    </session-factory>
+</hibernate-configuration>
